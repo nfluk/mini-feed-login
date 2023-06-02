@@ -27,3 +27,23 @@ let newsfeed = [
     timeline: 'My dog is great!',
   },
 ];
+
+function login() {
+  let uName = prompt('Enter username:');
+  let pWrd = prompt('Enter password:');
+
+  database.forEach((user) => {
+    if (uName === user.username && pWrd === user.password) {
+      feedPrint(newsfeed);
+      return;
+    }
+  });
+
+  console.log('Sorry. Username and password do not match.');
+}
+
+function feedPrint(arr) {
+  arr.forEach((news) => {
+    console.log(`${news.username} writes: ${news.timeline}`);
+  });
+}
